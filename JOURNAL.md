@@ -27,3 +27,20 @@ The test_readme_with_all_quality_signals test in tests/unit/test_readme_scorer.p
 - **Time estimate:** Small, focused fix, either extending fixture text or adjusting one assertion, plus confirming other quality-signal assertions still pass. Estimate 1-2 hours, comfortably within Tier 1's 3-6 hour range.
 - **Blockers:** No open blockers referenced on the issue.
 "@ | Out-File -FilePath JOURNAL.md -Encoding utf8
+
+Add-Content -Path JOURNAL.md -Value @"
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** https://github.com/AbuIdrak/pathreview/commit/4fb1e431e07feca9584fd289ed8af66c7763dc1
+
+**Reproduction summary:**
+Ran the failing test locally with pytest, confirming the fixture README produces word_count=51 and word_count_category="minimal" (not "comprehensive" as the test expects, since the scorer requires 500+ words for that category). Documented the reproduction with an inline comment in the test file explaining the root cause.
+
+**PLAN.md link:** https://github.com/AbuIdrak/pathreview/blob/fix/156-readme-scorer-test-fixture-word-count/PLAN.md
+
+**Walkthrough video (recommended):** [not recorded]
+
+**Blockers or open questions:**
+An open, unmerged PR (#164) from an external contributor attempts to fix this issue by extending the fixture to just over 100 words, which would not satisfy the "comprehensive" category (500+ words) per the scorer's actual logic. Planning to proceed with my own fix regardless, per the course's non-exclusive claims policy, but noting this in case it becomes relevant during review.
+"@
