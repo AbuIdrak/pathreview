@@ -60,3 +60,24 @@ Run make check to confirm no new lint/type errors were introduced (ruff and blac
 **Blockers:**
 None currently.
 "@
+
+Add-Content -Path JOURNAL.md -Value @"
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** https://github.com/ascherj/pathreview/pull/622
+
+**Branch:** fix/156-readme-scorer-test-fixture-word-count
+
+**What you built:**
+Extended the fixture README in test_readme_with_all_quality_signals to genuinely exceed 500 words with meaningful content (Table of Contents, expanded Installation/Usage, API Reference, Configuration, Contributing, Testing sections), and corrected the assertion from word_count > 100 to word_count > 500 to match the scorer's actual "comprehensive" threshold defined in agent/tools/readme_scorer.py.
+
+**Tests added or updated:**
+Updated tests/unit/test_readme_scorer.py - specifically the fixture and assertion in test_readme_with_all_quality_signals. All 23 tests in the file pass. Confirmed via full suite run that the fix resolves the target failure with no new regressions (52 failed/376 passed, down from a baseline of 53 failed/375 passed).
+
+**Self-review confirmation:** [x] make check passes (for my file - ruff clean, black clean, mypy shows only a pre-existing, unrelated numpy stub error)  [x] make test-unit passes (for my target test - full suite has 52 pre-existing unrelated failures, documented in PR description)
+
+**Draft PR feedback received from:** none yet
+"@
