@@ -44,3 +44,19 @@ Ran the failing test locally with pytest, confirming the fixture README produces
 **Blockers or open questions:**
 An open, unmerged PR (#164) from an external contributor attempts to fix this issue by extending the fixture to just over 100 words, which would not satisfy the "comprehensive" category (500+ words) per the scorer's actual logic. Planning to proceed with my own fix regardless, per the course's non-exclusive claims policy, but noting this in case it becomes relevant during review.
 "@
+
+Add-Content -Path JOURNAL.md -Value @"
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+Implemented the fix from PLAN.md: extended the fixture README in test_readme_with_all_quality_signals to genuinely exceed 500 words (added Table of Contents, expanded Installation/Usage prose, API Reference, Configuration, Contributing, and Testing sections), and corrected the assertion from word_count > 100 to word_count > 500 to match the scorer's actual "comprehensive" threshold. All 23 tests in test_readme_scorer.py pass, including the previously failing one. Ran the full suite before and after: baseline was 53 failed/375 passed, now 52 failed/376 passed - confirming the fix resolves the target issue with no new regressions elsewhere.
+
+**Next steps:**
+Run make check to confirm no new lint/type errors were introduced (ruff and black already confirmed clean on my file). Open a draft PR for early feedback, then finalize the PR description documenting the pre-existing baseline failures and my verification steps.
+
+**Blockers:**
+None currently.
+"@
